@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+
+    </head>
+    <body>
+        <h1>multiplication questions</h1>
+        <ol>
+            <li id = "question0">1 x 1</li>
+            <li id = "question1">1 x 1</li>
+            <li id = "question2">1 x 1</li>
+            <li id = "question3">1 x 1</li>
+            <li id = "question4">1 x 1</li>
+            <li id = "question5">1 x 1</li>
+            <li id = "question6">1 x 1</li>
+            <li id = "question7">1 x 1</li>
+            <li id = "question8">1 x 1</li>
+            <li id = "question9">1 x 1</li>
+            
+        </ol>
+        
+        <button onclick="submitanswer()" >submit</button>
+        <img src = "thumbup.jpg" width = 100>
+        <script>
+            let reset  = 0
+            let theanswer = [0,1,2,3,4,5,6,7,8,9]
+
+            while (reset <= 9) {
+                let randnum1 = Math.floor(Math.random()*13);
+                let randnum2 = Math.floor(Math.random()*13);
+                let myquestion = document.getElementById("question" + reset)
+                let myAnswerid = "answer" + reset
+                theanswer[reset] = randnum1 * randnum2
+
+                myquestion.innerHTML = randnum1 + " x " + randnum2 + '<input type="text" id="' + myAnswerid + '" placeholder="enter answer">';
+                reset = reset + 1
+            }
+            
+            reset = 0
+            function submitanswer(){
+                if (reset == 0){ 
+                    for(let e = 0; e <= 9; e++) {
+                            let playeranswer = document.getElementById("answer" + e).value
+                            let myquestion = document.getElementById("question" + e)
+                            
+                            if (playeranswer == theanswer[e]) {
+                                myquestion.innerHTML = myquestion.innerHTML + "✔️"
+                            } else{
+                                myquestion.innerHTML = myquestion.innerHTML + "❌"
+                            }
+                        }
+                    reset = 1
+                    }   
+                }
+
+
+        </script>
+    </body>
+</html>
